@@ -147,18 +147,6 @@
       <div
         class="flex items-center gap-2 sm:gap-3 pl-1 sm:pl-2 pr-2 overflow-x-auto no-scrollbar max-w-[62vw] md:max-w-none shrink-0">
 
-        <!-- Google -->
-        <div class="flex items-baseline font-sans font-medium tracking-tighter shrink-0">
-          <span class="text-[17px] sm:text-[20px]">
-            <span class="text-google-blue">G</span><span class="text-google-red">o</span><span
-              class="text-google-yellow">o</span><span class="text-google-blue">g</span><span
-              class="text-google-green">l</span><span class="text-google-red">e</span>
-          </span>
-          <span class="text-google-blue text-[12px] sm:text-[15px] ml-0.5 font-bold">谷歌</span>
-        </div>
-
-        <div class="h-4 sm:h-5 w-[2px] bg-gray-900 shrink-0"></div>
-
         <!-- 小红书 -->
         <div
           class="bg-[#ff2442] text-white px-2 py-0.5 sm:px-2.5 rounded-full flex items-center justify-center font-bold text-[11px] sm:text-[13px] tracking-widest shrink-0">
@@ -788,6 +776,32 @@
               </ul>
             </div>
 
+            <!-- 谷歌周边礼品入口 -->
+            <div
+              class="bg-google-yellow p-6 sm:p-8 rounded-3xl border-4 border-gray-900 shadow-brutal relative overflow-hidden">
+              <div
+                class="absolute -right-8 -top-8 w-28 h-28 rounded-full bg-google-red border-4 border-gray-900 opacity-90">
+              </div>
+              <div class="relative z-10">
+                <span
+                  class="inline-block bg-white border-2 border-gray-900 text-gray-900 text-xs font-black px-3 py-1 rounded-full shadow-brutal-sm mb-4 transform -rotate-2">GOOGLE
+                  SWAG</span>
+                <h4 class="font-black text-2xl sm:text-3xl text-gray-900 mb-2">不止奖金，还有专属礼品</h4>
+                <p class="text-sm font-bold text-gray-800 leading-relaxed mb-5 max-w-xl">
+                  Top 6、Top 30 入围作品与直播连麦作品均有对应礼品，点击查看实物图与定制设计理念。
+                </p>
+                <div class="flex flex-wrap gap-2 mb-6 text-xs font-black">
+                  <span class="bg-white border-2 border-gray-900 rounded-full px-3 py-1">Top 6 · 4 件</span>
+                  <span class="bg-white border-2 border-gray-900 rounded-full px-3 py-1">Top 30 · 3 件</span>
+                  <span class="bg-white border-2 border-gray-900 rounded-full px-3 py-1">直播连麦 · 限定纪念 T 恤</span>
+                </div>
+                <button id="openPrizeGiftModal" type="button" onclick="openPrizeGiftModal(this)"
+                  class="btn-brutal inline-flex items-center gap-2 bg-gray-900 text-white font-black py-3 px-6 rounded-full border-2 border-gray-900 shadow-brutal-sm">
+                  查看礼品详情 <span aria-hidden="true">↗</span>
+                </button>
+              </div>
+            </div>
+
           </div>
         </div>
 
@@ -846,6 +860,161 @@
     </div>
   </footer>
 
+  <!-- Prize Gift Modal -->
+  <div id="prizeGiftModal" role="dialog" aria-modal="true" aria-labelledby="prizeGiftModalTitle"
+    class="fixed inset-0 bg-gray-900/85 backdrop-blur-sm hidden items-center justify-center p-3 sm:p-6 z-[110]"
+    onclick="closePrizeGiftModalOnBackdrop(event)">
+    <div
+      class="bg-[#faf9f6] border-4 border-gray-900 rounded-3xl shadow-brutal-lg w-full max-w-6xl max-h-[92vh] overflow-y-auto relative"
+      id="prizeGiftModalContent">
+      <div
+        class="sticky top-0 z-20 bg-white border-b-4 border-gray-900 px-5 py-4 sm:px-8 sm:py-5 flex items-center justify-between gap-4">
+        <div>
+          <p class="text-xs font-black text-google-blue tracking-widest mb-1">VIBE-A-THON · PRIZE GIFTS</p>
+          <h3 id="prizeGiftModalTitle" class="text-2xl sm:text-4xl font-black text-gray-900">谷歌周边礼品一览</h3>
+        </div>
+        <button type="button" onclick="closePrizeGiftModal()" aria-label="关闭礼品详情"
+          class="w-11 h-11 shrink-0 flex items-center justify-center bg-google-red border-2 border-gray-900 text-white text-xl font-black rounded-full hover:bg-red-600 transition-colors shadow-brutal-sm">✕</button>
+      </div>
+
+      <div class="p-4 sm:p-8 space-y-10">
+        <!-- Top 6 Gifts -->
+        <section aria-labelledby="top6GiftTitle">
+          <div class="flex flex-wrap items-center gap-3 mb-5">
+            <span
+              class="bg-google-yellow border-2 border-gray-900 rounded-full px-4 py-1 text-sm font-black shadow-brutal-sm">TOP
+              6</span>
+            <h4 id="top6GiftTitle" class="text-2xl font-black text-gray-900">Top 6 作品奖励</h4>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <article class="bg-white border-2 border-gray-900 rounded-2xl overflow-hidden shadow-brutal-sm">
+              <div class="h-64 bg-blue-50 p-5 flex items-center justify-center border-b-2 border-gray-900">
+                <img src="assets/prizes/backpack.png" alt="黑色 Google 限定城市机能背包"
+                  class="w-full h-full object-contain">
+              </div>
+              <div class="p-5">
+                <p class="text-xs font-black text-google-blue tracking-wider mb-1">TOP 6 GIFT 01</p>
+                <h5 class="text-xl font-black text-gray-900">Google 限定城市机能背包</h5>
+              </div>
+            </article>
+
+            <article class="bg-white border-2 border-gray-900 rounded-2xl overflow-hidden shadow-brutal-sm">
+              <div class="h-64 bg-red-50 grid grid-cols-2 gap-2 p-3 border-b-2 border-gray-900">
+                <img src="assets/prizes/temperature-mug-front.png" alt="Google Hot Reload 限定感温杯变色前正面"
+                  class="w-full h-full object-contain">
+                <img src="assets/prizes/temperature-mug-back.png" alt="Google Hot Reload 限定感温杯升温后背面图案"
+                  class="w-full h-full object-contain">
+              </div>
+              <div class="p-5">
+                <p class="text-xs font-black text-google-red tracking-wider mb-1">TOP 6 GIFT 02</p>
+                <h5 class="text-xl font-black text-gray-900 mb-2">Google Hot Reload 限定感温杯</h5>
+                <p class="text-sm font-medium text-gray-600 leading-relaxed">
+                  <strong class="text-gray-900">设计理念：</strong>寓意 Dev go Global。以极简的极客符号语言，具象化表达开发者“出海”的核心愿景；代表执行与输出的箭头
+                  -&gt; 直达右侧的全球化符号。
+                </p>
+              </div>
+            </article>
+
+            <article class="bg-white border-2 border-gray-900 rounded-2xl overflow-hidden shadow-brutal-sm">
+              <div class="h-64 bg-green-50 p-4 flex items-center justify-center border-b-2 border-gray-900">
+                <img src="assets/prizes/vest.png" alt="GDG 出海创想赛限定机能马甲正反面"
+                  class="w-full h-full object-contain">
+              </div>
+              <div class="p-5">
+                <p class="text-xs font-black text-google-green tracking-wider mb-1">TOP 6 GIFT 03</p>
+                <h5 class="text-xl font-black text-gray-900 mb-2">GDG 出海创想赛限定机能马甲</h5>
+                <p class="text-sm font-medium text-gray-600 leading-relaxed">
+                  <strong class="text-gray-900">设计理念：</strong>马甲采用偏工装风格，背面以代码流程线条展现 Code 等技术打磨迭代、开发者共创出海赛事内核。
+                </p>
+              </div>
+            </article>
+
+            <article class="bg-white border-2 border-gray-900 rounded-2xl overflow-hidden shadow-brutal-sm">
+              <div class="h-64 bg-yellow-50 p-5 flex items-center justify-center border-b-2 border-gray-900">
+                <img src="assets/prizes/baseball-cap.png" alt="黑色 Google 限定城市户外棒球帽"
+                  class="w-full h-full object-contain">
+              </div>
+              <div class="p-5">
+                <p class="text-xs font-black text-[#b06000] tracking-wider mb-1">TOP 6 GIFT 04</p>
+                <h5 class="text-xl font-black text-gray-900">Google 限定城市户外棒球帽</h5>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <!-- Top 30 Gifts -->
+        <section aria-labelledby="top30GiftTitle">
+          <div class="flex flex-wrap items-center gap-3 mb-5">
+            <span
+              class="bg-google-green text-white border-2 border-gray-900 rounded-full px-4 py-1 text-sm font-black shadow-brutal-sm">TOP
+              30</span>
+            <h4 id="top30GiftTitle" class="text-2xl font-black text-gray-900">Top 30 入围奖</h4>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+            <article class="bg-white border-2 border-gray-900 rounded-2xl overflow-hidden shadow-brutal-sm">
+              <div class="h-56 bg-blue-50 p-4 flex items-center justify-center border-b-2 border-gray-900">
+                <img src="assets/prizes/goodr-blue.jpg" alt="Goodr 蓝镜户外运动太阳镜"
+                  class="w-full h-full object-contain">
+              </div>
+              <div class="p-5">
+                <p class="text-xs font-black text-google-blue tracking-wider mb-1">FINALIST GIFT 01</p>
+                <h5 class="text-xl font-black text-gray-900">Goodr 蓝镜户外运动太阳镜</h5>
+              </div>
+            </article>
+
+            <article class="bg-white border-2 border-gray-900 rounded-2xl overflow-hidden shadow-brutal-sm">
+              <div class="h-56 bg-yellow-50 p-4 flex items-center justify-center border-b-2 border-gray-900">
+                <img src="assets/prizes/outdoor-cowboy-hat.png" alt="黑色 Google 限定全檐户外探索帽"
+                  class="w-full h-full object-contain">
+              </div>
+              <div class="p-5">
+                <p class="text-xs font-black text-[#b06000] tracking-wider mb-1">FINALIST GIFT 02</p>
+                <h5 class="text-xl font-black text-gray-900">Google 限定全檐户外探索帽</h5>
+              </div>
+            </article>
+
+            <article class="bg-white border-2 border-gray-900 rounded-2xl overflow-hidden shadow-brutal-sm">
+              <div class="h-56 bg-red-50 p-3 flex items-center justify-center border-b-2 border-gray-900">
+                <img src="assets/prizes/custom-tshirt.png" alt="GDG 出海创想赛限定纪念 T 恤正反面"
+                  class="w-full h-full object-contain">
+              </div>
+              <div class="p-5">
+                <p class="text-xs font-black text-google-red tracking-wider mb-1">FINALIST GIFT 03</p>
+                <h5 class="text-xl font-black text-gray-900 mb-2">GDG 出海创想赛限定纪念 T 恤</h5>
+                <p class="text-sm font-medium text-gray-600 leading-relaxed">
+                  <strong class="text-gray-900">设计理念：</strong>以代码流程图形，展现开发者社群互联协作、海内外技术生态双向链接的赛事理念。
+                </p>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <!-- Livestream Gift -->
+        <section aria-labelledby="liveGiftTitle"
+          class="bg-gray-900 border-4 border-gray-900 rounded-3xl p-5 sm:p-7 text-white shadow-brutal">
+          <div class="grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-6 items-center">
+            <div class="h-48 bg-white rounded-2xl border-2 border-gray-900 p-3 flex items-center justify-center">
+              <img src="assets/prizes/custom-tshirt.png" alt="直播连麦作品奖励 GDG 出海创想赛限定纪念 T 恤"
+                class="w-full h-full object-contain">
+            </div>
+            <div>
+              <span
+                class="inline-block bg-google-red border-2 border-white rounded-full px-3 py-1 text-xs font-black mb-3">LIVE
+                REWARD</span>
+              <h4 id="liveGiftTitle" class="text-2xl sm:text-3xl font-black mb-2">直播连麦作品奖励</h4>
+              <p class="font-black text-google-yellow text-xl mb-2">GDG 出海创想赛限定纪念 T 恤</p>
+              <p class="text-sm font-bold text-gray-300 leading-relaxed">参与直播连麦、分享作品进展，即有机会获得赛事限定纪念 T 恤。</p>
+            </div>
+          </div>
+        </section>
+
+        <p class="text-xs font-bold text-gray-500 text-center pb-2">* 图片为礼品展示效果，实际礼品以主办方最终发放为准。</p>
+      </div>
+    </div>
+  </div>
+
   <!-- WeChat Group Modal -->
   <div id="groupModal"
     class="fixed inset-0 bg-gray-900/80 backdrop-blur-sm hidden items-center justify-center p-4 z-[100] transition-opacity">
@@ -862,7 +1031,10 @@
       <p class="text-sm font-bold text-gray-600 mb-6">赛题答疑、组队参赛、技术交流</p>
 
       <div class="bg-white p-2 rounded-2xl inline-block mb-4 border-4 border-gray-900 shadow-brutal-sm">
-        <img src="eventgroup.png" alt="微信答疑群" class="w-48 h-48 object-cover rounded-xl">
+        <img
+          src="https://api.qrserver.com/v1/create-qr-code/?size=512x512&amp;margin=16&amp;data=https%3A%2F%2Fweixin.qq.com%2Fg%2FAQYAAJp1QrG2HQJP1nM-1pCugECcz9agrkKc32qpvQqvoJ_gAeTCw--alNZUMG3Z"
+          onerror="this.onerror=null; this.src='eventgroup.jpg';"
+          alt="Google Vibe-a-thon 3 群二维码" class="w-48 h-48 object-contain rounded-xl">
       </div>
 
       <p class="text-xs font-bold text-gray-500">微信扫码入群<br />若无法扫码，请在报名表中留下联系方式</p>
@@ -1023,6 +1195,35 @@
         modal.classList.remove('flex');
       }, 300);
     }
+
+    let prizeGiftModalTrigger = null;
+
+    function openPrizeGiftModal(trigger) {
+      const modal = document.getElementById('prizeGiftModal');
+      prizeGiftModalTrigger = trigger || document.activeElement;
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+      document.body.style.overflow = 'hidden';
+      modal.querySelector('[aria-label="关闭礼品详情"]').focus();
+    }
+
+    function closePrizeGiftModal() {
+      const modal = document.getElementById('prizeGiftModal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+      document.body.style.overflow = '';
+      if (prizeGiftModalTrigger) prizeGiftModalTrigger.focus();
+    }
+
+    function closePrizeGiftModalOnBackdrop(event) {
+      if (event.target.id === 'prizeGiftModal') closePrizeGiftModal();
+    }
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && !document.getElementById('prizeGiftModal').classList.contains('hidden')) {
+        closePrizeGiftModal();
+      }
+    });
 
     window.onload = () => {
       switchVibe('truth');
